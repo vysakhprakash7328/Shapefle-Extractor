@@ -1,0 +1,82 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+    <title>Document</title>
+
+<style>
+    .div1{
+        justify-content: center;
+        text-align: center;
+        
+    }
+    .div2{
+        justify-content: center;
+        align-items: center;
+        color: blue;
+        text-align: center;
+    }
+    .btn1,.btn2{
+        width: 70px;
+        height: 30px;
+        background-color: green;
+        border: none;
+        border-radius: 4px;
+        color: white;
+        
+    }
+    .form-control{
+        width:140px;
+        height: 20px;
+        background-color: whitesmoke;
+        border: none;
+
+    }
+    h3,h1{
+        text-align: center;
+    }
+</style>
+</head>
+<body>
+    
+    {% if msg == 1 %}
+    <h1 style="color: green;">Database Connection successfull</h1>
+    
+    {% endif %}
+    {% if status == 1 %}
+    {% if msgs %}
+    <h3 style="color: green;">{{msgs}}</h3>
+    <h3 style="color: chocolate;">Upload another file...</h3>
+    <h3 style="color: chocolate;">Change Database? Click <a href="{% url 'linestring_fetch' %}">Change DB</a></h3>
+    {% endif %}
+    <div class="div1">
+    <form action="{% url 'linestring_fetch' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+       {{form.as_p}}
+       <input type="submit" name="btn2" class="btn2">
+    </form>
+    </div>
+    {% elif status == 2 %}
+
+    <div class="div2">
+        <h1 style="color: rgb(66, 83, 83);">Database Connection</h1><br>
+    <form action="{% url 'linestring_fetch' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+       {{form_conn.as_p}}
+       <input type="submit" name="btn1" class="btn1">
+    </form>
+    </div>
+    {% if msg == 0 %}
+    <h3 style="color: red">Connection not successfull.</h3>
+    {% endif %}
+
+    {% endif %}
+    
+    
+</body>
+</html>
