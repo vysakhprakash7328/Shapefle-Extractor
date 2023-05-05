@@ -130,9 +130,9 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-GDAL_LIBRARY_PATH = r'C:\OSGeo4W\bin\gdal306.dll'
+GDAL_LIBRARY_PATH = r'C:\OSGeo4W64\bin\gdal306.dll'
 
-GEOS_LIBRARY_PATH = r'C:\OSGeo4W\bin\geos_c.dll'
+GEOS_LIBRARY_PATH = r'C:\OSGeo4W64\bin\geos_c.dll'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'

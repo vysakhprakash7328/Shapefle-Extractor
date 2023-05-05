@@ -9,9 +9,10 @@ urlpatterns = [
     path('home',views.home,name ='home'),
     path('fetchdata', views.fetchdata,name='fetchdata'),
     path('projfile', views.proj_file,name='projfile'),
-    path('', views.linestring_fetch,name='linestring_fetch'),
+    path('fetch', views.linestring_fetch,name='linestring_fetch'),
     path('polygon_fetch', views.polygon_fetch,name='polygon_fetch'),
     path('create_tables', views.create_tables,name='create_tables'),
     path('dynamicdb', views.dynamicdb,name='dynamicdb'),
+    path('', views.figma,name='figma'),
     
 ]+ static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

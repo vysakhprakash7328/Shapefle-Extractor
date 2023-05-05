@@ -350,9 +350,7 @@ def linestring_fetch(request):
                 MyModel.objects.create(**s)
 
 
-                call_command('makemigrations','shapedata')
-                call_command('migrate','shapedata','zero', '--fake-initial')
-        
+                
 
     
 
@@ -614,6 +612,10 @@ def dynamicdb(request):
 
     # return render(request, 'my_template.html')
     return HttpResponse("Db created successfully")
+
+
+def figma(request):
+    return render(request,'frame.html')
 
 
 
